@@ -13,8 +13,11 @@
 
 **Repository**
 
-- [Chang-Chiang/threadpool: 基于 C++11 的线程池动态库 (github.com)](https://github.com/Chang-Chiang/threadpool)
-- [Chang-Chiang/chatserver: 基于 muduo 网络库的集群聊天服务器 (github.com)](https://github.com/Chang-Chiang/chatserver)
+- [Chang-Chiang/threadpool: 基于 C++11 的线程池动态库](https://github.com/Chang-Chiang/threadpool)
+- [Chang-Chiang/chatserver: 基于 muduo 网络库的集群聊天服务器](https://github.com/Chang-Chiang/chatserver)
+- [Chang-Chiang/muduo](https://github.com/Chang-Chiang/muduo)
+- [Chang-Chiang/WebServerDemo: Simple Demo of Web Server](https://github.com/Chang-Chiang/WebServerDemo)
+- [Chang-Chiang/ConnectionPool: 基于 C++ 的 MySQL 数据库连接池](https://github.com/Chang-Chiang/ConnectionPool)
 
 **Github Stats**
 
