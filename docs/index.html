@@ -25,7 +25,7 @@
   --sidebar-w: 236px;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0d1117;
     --card: #161b22;
     --text: #e6edf3;
@@ -38,6 +38,19 @@
     --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 4px 14px rgba(0, 0, 0, .3);
     --shadow-lg: 0 4px 10px rgba(0, 0, 0, .5), 0 12px 32px rgba(0, 0, 0, .4);
   }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-2: #bc8cff;
+  --green: #3fb950;
+  --orange: #ff7b33;
+  --border: #30363d;
+  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 4px 14px rgba(0, 0, 0, .3);
+  --shadow-lg: 0 4px 10px rgba(0, 0, 0, .5), 0 12px 32px rgba(0, 0, 0, .4);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
@@ -63,6 +76,12 @@ aside nav a {
 }
 aside nav a:hover { color: var(--text); background: rgba(127, 127, 127, .09); }
 aside nav a.active { color: var(--accent); background: rgba(37, 99, 235, .10); font-weight: 600; }
+aside .theme-btn {
+  margin-top: 14px; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font-size: 13px; cursor: pointer;
+  font-family: inherit; transition: all .15s ease; text-align: left;
+}
+aside .theme-btn:hover { color: var(--text); border-color: var(--accent); }
 aside .contact-mini { margin-top: auto; font-size: 12px; color: var(--muted); }
 aside .contact-mini a { color: var(--accent); text-decoration: none; word-break: break-all; }
 
@@ -170,6 +189,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <a href="#projects">🚀 项目经历</a>
     <a href="#contact">📮 联系方式</a>
   </nav>
+  <button class="theme-btn" id="theme-toggle" title="点击切换主题">🖥 跟随系统</button>
   <div class="contact-mini">
     <a href="mailto:Chang_Chiang@outlook.com">Chang_Chiang@outlook.com</a><br/>
     <a href="https://github.com/Chang-Chiang">github.com/Chang-Chiang</a>
@@ -403,6 +423,28 @@ flowchart LR
 </main>
 
 <script>
+/* 主题切换：跟随系统 → 浅色 → 深色 循环，记忆到 localStorage */
+(() => {
+  const btn = document.getElementById('theme-toggle');
+  const modes = [
+    { key: 'auto',  label: '🖥 跟随系统' },
+    { key: 'light', label: '☀️ 浅色模式' },
+    { key: 'dark',  label: '🌙 深色模式' },
+  ];
+  let cur = modes.findIndex(m => m.key === localStorage.getItem('theme')) ;
+  if (cur === -1) cur = 0;
+  const apply = () => {
+    const m = modes[cur];
+    btn.textContent = m.label;
+    if (m.key === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = m.key;
+    localStorage.setItem('theme', m.key);
+    if (m.key === 'auto') localStorage.removeItem('theme');
+  };
+  btn.addEventListener('click', () => { cur = (cur + 1) % modes.length; apply(); });
+  if (localStorage.getItem('theme')) apply();
+})();
+
 /* 侧边目录滚动高亮 */
 const links = document.querySelectorAll('#toc a');
 const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
