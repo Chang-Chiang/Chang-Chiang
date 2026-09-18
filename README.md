@@ -24,7 +24,7 @@
 
 - 🧰 **开发经验**：Linux 平台 C++ · **2 年**医疗影像设备领域，算法工程化落地经验丰富
 - ⚡ **性能优化**：TMA 剖析 + SIMD/CUDA/多线程 · **9.6x** 加速（1621ms → 168ms）
-- 🧠 **模型部署**：TensorRT/OpenVINO 双引擎 · GPU **≈20ms**/切面，主导开源框架 [**InferDeploy**](https://github.com/Chang-Chiang/InferDeploy)
+- 🧠 **模型部署**：TensorRT/OpenVINO 双引擎 · GPU **≈20ms**/切面，深度学习模型部署框架 [**InferDeploy**](https://github.com/Chang-Chiang/InferDeploy)
 
 <a name="sec-techstack"></a>
 
