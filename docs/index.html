@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chang Chiang · 高性能计算工程师</title>
+<meta name="description" content="在线简历 — 高性能计算工程师，专注 C++ 算法工程化、性能优化与深度学习推理部署"/>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+</script>
+<style>
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --green: #059669;
+  --orange: #ea580c;
+  --border: #e5e7eb;
+  --shadow: 0 1px 3px rgba(16, 24, 40, .07), 0 4px 14px rgba(16, 24, 40, .05);
+  --shadow-lg: 0 4px 10px rgba(16, 24, 40, .08), 0 12px 32px rgba(16, 24, 40, .10);
+  --sidebar-w: 236px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-2: #bc8cff;
+    --green: #3fb950;
+    --orange: #ff7b33;
+    --border: #30363d;
+    --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 4px 14px rgba(0, 0, 0, .3);
+    --shadow-lg: 0 4px 10px rgba(0, 0, 0, .5), 0 12px 32px rgba(0, 0, 0, .4);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px;
+}
+
+/* ---------- 侧边目录 ---------- */
+aside {
+  position: fixed; top: 0; left: 0; bottom: 0; width: var(--sidebar-w);
+  padding: 28px 18px; background: var(--card); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 6px; z-index: 10;
+}
+aside .logo { font-size: 19px; font-weight: 800; letter-spacing: .5px; margin-bottom: 2px; }
+aside .logo em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+aside .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+aside nav a {
+  display: block; padding: 8px 12px; border-radius: 8px; text-decoration: none;
+  color: var(--muted); font-size: 14px; transition: all .15s ease;
+}
+aside nav a:hover { color: var(--text); background: rgba(127, 127, 127, .09); }
+aside nav a.active { color: var(--accent); background: rgba(37, 99, 235, .10); font-weight: 600; }
+aside .contact-mini { margin-top: auto; font-size: 12px; color: var(--muted); }
+aside .contact-mini a { color: var(--accent); text-decoration: none; word-break: break-all; }
+
+/* ---------- 主区 ---------- */
+main { margin-left: var(--sidebar-w); padding: 0 clamp(20px, 4vw, 56px) 64px; max-width: 1024px; }
+
+.hero {
+  margin: 0 0 36px; padding: 64px clamp(20px, 4vw, 56px) 52px;
+  margin-left: calc(-1 * clamp(20px, 4vw, 56px)); margin-right: calc(-1 * clamp(20px, 4vw, 56px));
+  padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px);
+  background:
+    radial-gradient(900px 320px at 85% -10%, rgba(124, 58, 237, .18), transparent 60%),
+    radial-gradient(700px 300px at 8% 0%, rgba(37, 99, 235, .22), transparent 60%),
+    var(--card);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: 34px; font-weight: 800; letter-spacing: 1px; }
+.hero h1 span { font-size: 17px; font-weight: 500; color: var(--muted); margin-left: 12px; }
+.hero .tagline { margin-top: 10px; font-size: 15px; color: var(--muted); max-width: 640px; }
+.hero .badges { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+.hero .badges img { border-radius: 6px; }
+
+section { margin-top: 48px; }
+h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+h2::before { content: ""; width: 5px; height: 22px; border-radius: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 22px 24px; box-shadow: var(--shadow); }
+
+/* 概览亮点卡 */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.stat-card { display: flex; align-items: baseline; gap: 10px; padding: 13px 16px; }
+.stat-card .icon { font-size: 17px; }
+.stat-card .num { font-size: 19px; font-weight: 800; white-space: nowrap;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat-card .label { font-size: 12px; color: var(--muted); line-height: 1.5; text-align: left; }
+
+/* 技术栈 */
+.skill-group { margin-bottom: 16px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.skill-group .cat { min-width: 92px; font-weight: 700; color: var(--accent); }
+.skill-group .items { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-group .items img { border-radius: 4px; }
+
+/* 优化成果条形图 */
+.bench { margin-top: 18px; display: grid; gap: 10px; }
+.bench .row { display: grid; grid-template-columns: 170px 1fr 90px; align-items: center; gap: 12px; font-size: 13px; }
+.bench .track { height: 22px; border-radius: 6px; background: rgba(127, 127, 127, .12); overflow: hidden; }
+.bench .bar { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #ef4444, #f59e0b); }
+.bench .bar.fast { background: linear-gradient(90deg, var(--green), #22c55e); }
+.bench .val { font-weight: 700; color: var(--muted); }
+
+/* 时间线 */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px;
+  width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); opacity: .35; }
+.tl-item { position: relative; margin-bottom: 30px; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-item::before { content: ""; position: absolute; left: -28px; top: 8px; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-item .when { font-size: 12.5px; color: var(--muted); font-weight: 600; letter-spacing: .5px; }
+.tl-item .what { font-size: 17px; font-weight: 700; margin: 2px 0 2px; }
+.tl-item .role { font-size: 13.5px; color: var(--accent); font-weight: 600; }
+.tl-item ul { margin: 10px 0 0 18px; }
+.tl-item li { margin-bottom: 6px; }
+.tl-item li::marker { color: var(--accent); }
+.repo-link { font-size: 13px; }
+.repo-link a { color: var(--accent); text-decoration: none; }
+.repo-link a:hover { text-decoration: underline; }
+
+.tags { margin: 8px 0 2px; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags img { border-radius: 4px; }
+
+details.diagram { margin-top: 12px; border: 1px dashed var(--border); border-radius: 10px; padding: 10px 16px; }
+details.diagram summary { cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--accent); user-select: none; }
+details.diagram .mermaid { margin-top: 14px; overflow-x: auto; }
+
+footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 920px) {
+  aside { position: static; width: auto; flex-direction: row; align-items: center;
+    flex-wrap: wrap; padding: 14px 18px; border-right: none; border-bottom: 1px solid var(--border); }
+  aside .logo, aside .contact-mini { display: none; }
+  aside nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  aside nav a { padding: 6px 10px; font-size: 13px; }
+  main { margin-left: 0; }
+  .grid { grid-template-columns: 1fr; }
+  .bench .row { grid-template-columns: 120px 1fr 80px; }
+}
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="logo">Chang Chiang <em>· CC</em></div>
+  <div class="subtitle">高性能计算工程师</div>
+  <nav id="toc">
+    <a href="#overview">🔍 概览</a>
+    <a href="#techstack">🛠 核心技术栈</a>
+    <a href="#work">💼 工作经历</a>
+    <a href="#projects">🚀 项目经历</a>
+    <a href="#contact">📮 联系方式</a>
+  </nav>
+  <div class="contact-mini">
+    <a href="mailto:Chang_Chiang@outlook.com">Chang_Chiang@outlook.com</a><br/>
+    <a href="https://github.com/Chang-Chiang">github.com/Chang-Chiang</a>
+  </div>
+</aside>
+
+<main>
+
+<header class="hero">
+  <h1>Chang Chiang<span>高性能计算工程师</span></h1>
+  <p class="tagline">🔭 Currently focused on <b>C++ Image Processing · HPC · Model Deployment</b></p>
+  <div class="badges">
+    <a href="mailto:Chang_Chiang@outlook.com"><img src="https://img.shields.io/badge/Email-Chang_Chiang%40outlook.com-D14836?style=for-the-badge&logo=microsoftoutlook&logoColor=white" alt="Email"/></a>
+    <a href="https://github.com/Chang-Chiang"><img src="https://img.shields.io/badge/GitHub-Chang--Chiang-181712?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+  </div>
+</header>
+
+<section id="overview">
+  <h2>概览</h2>
+  <div class="grid">
+    <div class="card stat-card">
+      <div class="icon">🧰</div>
+      <div class="num">开发经验</div>
+      <div class="label">Linux 平台 C++ · <b>2 年</b>医疗影像设备领域，算法工程化落地经验丰富</div>
+    </div>
+    <div class="card stat-card">
+      <div class="icon">⚡</div>
+      <div class="num">性能优化</div>
+      <div class="label">TMA 剖析 + SIMD/CUDA/多线程 · <b>9.6x</b> 加速（1621ms → 168ms）</div>
+    </div>
+    <div class="card stat-card">
+      <div class="icon">🧠</div>
+      <div class="num">模型部署</div>
+      <div class="label">TensorRT/OpenVINO 双引擎 · GPU <b>≈20ms</b>/切面，主导开源框架 InferDeploy</div>
+    </div>
+  </div>
+</section>
+
+<section id="techstack">
+  <h2>核心技术栈</h2>
+  <div class="card">
+    <div class="skill-group"><div class="cat">编程语言</div><div class="items">
+      <img src="https://img.shields.io/badge/C%2B%2B-17/14/11-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+      <img src="https://img.shields.io/badge/MATLAB-0076A8?style=flat-square&logo=mathworks&logoColor=white"/>
+      <img src="https://img.shields.io/badge/x86%20Assembly-696969?style=flat-square&logo=intel&logoColor=white"/>
+    </div></div>
+    <div class="skill-group"><div class="cat">开发环境</div><div class="items">
+      <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black"/>
+      <img src="https://img.shields.io/badge/GCC-A42E2B?style=flat-square"/>
+      <img src="https://img.shields.io/badge/CMake-064F8C?style=flat-square&logo=cmake&logoColor=white"/>
+      <img src="https://img.shields.io/badge/GDB-41B4D0?style=flat-square"/>
+      <img src="https://img.shields.io/badge/Visual%20Studio-5C2D91?style=flat-square&logo=visualstudio&logoColor=white"/>
+    </div></div>
+    <div class="skill-group"><div class="cat">性能分析</div><div class="items">
+      <img src="https://img.shields.io/badge/TMA%20方法论-0A66C2?style=flat-square"/>
+      <img src="https://img.shields.io/badge/Intel%20VTune-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Intel%20Advisor-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Linux%20Perf-DD4A22?style=flat-square&logo=linux&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Flame%20Graph-E8820C?style=flat-square"/>
+    </div></div>
+    <div class="skill-group"><div class="cat">性能优化</div><div class="items">
+      <img src="https://img.shields.io/badge/SSE%2FAVX2-0068B5?style=flat-square&logo=intel&logoColor=white"/>
+      <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+      <img src="https://img.shields.io/badge/OpenCL-000000?style=flat-square&logo=opencl&logoColor=white"/>
+      <img src="https://img.shields.io/badge/OpenMP-4A8C2A?style=flat-square"/>
+      <img src="https://img.shields.io/badge/MPI-2E5C8A?style=flat-square"/>
+      <img src="https://img.shields.io/badge/Intel%20MKL-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+      <img src="https://img.shields.io/badge/LTO%2FPGO-8B5CF6?style=flat-square"/>
+    </div></div>
+    <div class="skill-group"><div class="cat">推理框架</div><div class="items">
+      <img src="https://img.shields.io/badge/TensorRT-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+      <img src="https://img.shields.io/badge/OpenVINO-3B82F6?style=flat-square&logo=intel&logoColor=white"/>
+      <img src="https://img.shields.io/badge/ONNX-005FED?style=flat-square&logo=onnx&logoColor=white"/>
+    </div></div>
+  </div>
+</section>
+
+<section id="work">
+  <h2>工作经历</h2>
+  <div class="card timeline">
+    <div class="tl-item">
+      <div class="when">2024.04 – 2026.09</div>
+      <div class="what">深圳开立生物医疗科技股份有限公司</div>
+      <div class="role">软件工程师</div>
+      <ul>
+        <li><b>算法工程化</b>：Matlab/Python 仿真方案 C++ 工程化落地，独立完成超声图像处理模块开发，推进模块化重构与技术文档沉淀</li>
+        <li><b>性能优化</b>：TMA 定位热点，SIMD 向量化 + 多线程并行 + 访存优化，ATI 整帧 1621ms → 168ms（<b>9.6x</b>）</li>
+        <li><b>推理部署</b>：主导超声主机 TensorRT 与 CUDA/cuDNN 多版本兼容性调研及推理环境搭建</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>项目经历</h2>
+  <div class="card timeline">
+
+    <div class="tl-item">
+      <div class="when">2024.06 – 2024.12</div>
+      <div class="what">医学图像处理算法性能优化</div>
+      <div class="tags">
+        <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
+        <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+        <img src="https://img.shields.io/badge/AVX2-0068B5?style=flat-square&logo=intel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/MKL-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/OpenCL-000000?style=flat-square&logo=opencl&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Intel%20VTune-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+      </div>
+      <ul>
+        <li><b>成果</b>：目标平台 i3-1115G4E 上 ATI 整帧耗时 1621ms → 168ms（<b>9.6x</b>），满足临床实时处理需求</li>
+        <li><b>剖析驱动</b>：VTune 全链路 TMA 剖析定位 Memory/Core Bound 瓶颈，按热点占比逐级实施优化</li>
+        <li><b>多层优化手段</b>：手写 SSE/AVX2 intrinsics；CUDA + cuFFT 批量化、前后处理 kernel 常驻显存；MKL DFTI 替代 cv::dft（948ms → 118ms、<b>8x</b>）；TBB 多线程；二维前缀和使 ROI 累加内存流量降低 160 倍；LTO 链接优化</li>
+        <li><b>跨平台与正确性</b>：OpenCL 覆盖 Intel/AMD/NVIDIA 无独显设备；分级验证规范——逻辑等价要求逐位一致、浮点重排允许 ulp 级差异</li>
+      </ul>
+      <div class="bench">
+        <div class="row"><span>ATI 整帧 · 优化前</span><div class="track"><div class="bar" style="width:100%"></div></div><span class="val">1621ms</span></div>
+        <div class="row"><span>ATI 整帧 · 优化后</span><div class="track"><div class="bar fast" style="width:10.4%"></div></div><span class="val">168ms</span></div>
+        <div class="row"><span>FFT 算子 · cv::dft</span><div class="track"><div class="bar" style="width:58.4%"></div></div><span class="val">948ms</span></div>
+        <div class="row"><span>FFT 算子 · MKL DFTI</span><div class="track"><div class="bar fast" style="width:7.3%"></div></div><span class="val">118ms</span></div>
+      </div>
+      <details class="diagram">
+        <summary>📊 剖析驱动优化闭环流程图</summary>
+        <pre class="mermaid">
+flowchart LR
+    A["🔍 VTune/Perf<br/>TMA 剖析"] --> B["🎯 定位瓶颈<br/>Memory / Core Bound"]
+    B --> C["⚡ 按热点逐级优化<br/>SIMD · CUDA · MKL<br/>TBB · 前缀和 · LTO"]
+    C --> D["✅ 分级验证<br/>逐位一致 / ulp 级容差"]
+    D -- "未达目标 → 重新剖析" --> A
+    D -- "达标" --> E["1621ms → 168ms 🚀 9.6x"]
+    style A fill:#E3F2FD,stroke:#1565C0
+    style B fill:#E3F2FD,stroke:#1565C0
+    style C fill:#FFF3E0,stroke:#EF6C00
+    style D fill:#E8F5E9,stroke:#2E7D32
+    style E fill:#1565C0,stroke:#0D47A1,color:#fff
+        </pre>
+      </details>
+    </div>
+
+    <div class="tl-item">
+      <div class="when">2025.01 – 2025.04</div>
+      <div class="what">深度学习推理部署：CT/MR 关键切面检测与脏器分割</div>
+      <div class="tags">
+        <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
+        <img src="https://img.shields.io/badge/TensorRT-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+        <img src="https://img.shields.io/badge/OpenVINO-3B82F6?style=flat-square&logo=intel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+      </div>
+      <div class="repo-link">🐙 <a href="https://github.com/Chang-Chiang/InferDeploy">github.com/Chang-Chiang/InferDeploy</a></div>
+      <ul>
+        <li><b>框架</b>：开源 InferDeploy 三层推理框架（Worker–InferTRT–Task），新任务仅重写预处理/后处理即可接入、零改核心代码</li>
+        <li><b>双引擎落地</b>：同一 ONNX 模型按设备自动选择 TensorRT GPU（≈20ms）或 OpenVINO CPU（≈100ms）引擎，覆盖 YOLO 关键切面检测与 UNet 脏器分割两任务</li>
+        <li><b>CUDA 三维后处理</b>：分割掩膜重建体数据 → 最大连通域筛选 → 3D 形态学开闭 → 3D 高斯平滑，支撑体积统计与三维可视化</li>
+        <li><b>吞吐与工程质量</b>：FP32/FP16/INT8 多精度 + INT8 校准链路（COCO 验证）；GPU 预处理 + 多 Stream 异步重叠提吞吐；RAII + shared_ptr 资源管理、六级日志与计时组件</li>
+      </ul>
+      <details class="diagram">
+        <summary>🏗 双引擎部署架构图</summary>
+        <pre class="mermaid">
+flowchart TB
+    ONNX["📦 ONNX 模型"] --> GPU["🟢 TensorRT 引擎<br/>NVIDIA GPU · ≈20ms/切面"]
+    ONNX --> CPU["🔵 OpenVINO 引擎<br/>无独显 CPU · ≈100ms/切面"]
+    subgraph INF["InferDeploy 三层架构"]
+        direction LR
+        W["Worker 层<br/>极简对外接口"] --> I["InferTRT 核心层<br/>模型构建 + 推理执行"] --> T["Task 层<br/>预处理 / 后处理扩展"]
+    end
+    GPU --> POST["CUDA 三维后处理<br/>连通域筛选 · 形态学 · 高斯平滑"]
+    CPU --> POST
+    style ONNX fill:#F3E5F5,stroke:#7B1FA2
+    style GPU fill:#E8F5E9,stroke:#2E7D32
+    style CPU fill:#E3F2FD,stroke:#1565C0
+    style POST fill:#FFF3E0,stroke:#EF6C00
+        </pre>
+      </details>
+    </div>
+
+    <div class="tl-item">
+      <div class="when">2024.06 – 至今</div>
+      <div class="what">性能分析与优化：知识体系与 TMA 实战（开源项目）</div>
+      <div class="tags">
+        <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Linux%20Perf-DD4A22?style=flat-square&logo=linux&logoColor=white"/>
+        <img src="https://img.shields.io/badge/VTune%2FAdvisor-0071C5?style=flat-square&logo=intel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/AVX2-0068B5?style=flat-square&logo=intel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white"/>
+        <img src="https://img.shields.io/badge/OpenMP-4A8C2A?style=flat-square"/>
+        <img src="https://img.shields.io/badge/MPI-2E5C8A?style=flat-square"/>
+      </div>
+      <div class="repo-link">🐙 <a href="https://github.com/Chang-Chiang/Performance-Analysis-And-Tuning">github.com/Chang-Chiang/Performance-Analysis-And-Tuning</a></div>
+      <ul>
+        <li><b>知识体系</b>：27 篇技术文档 + 200 份 before/after 对照示例，覆盖性能度量 → 单核（ILP/DLP）→ 访存 → 并行的全链路</li>
+        <li><b>TMA 实战</b>：perf-ninja 16 项优化实验，加速比 1.14x ~ 70x</li>
+        <li><b>方法论反哺</b>：完整 TMA 分析流水线 + 4 类优化 checklist，直接支撑「医学图像处理」项目 9.6x 加速落地</li>
+      </ul>
+      <div class="bench">
+        <div class="row"><span>算法优化</span><div class="track"><div class="bar fast" style="width:100%"></div></div><span class="val">70x</span></div>
+        <div class="row"><span>依赖链消除</span><div class="track"><div class="bar fast" style="width:29.9%"></div></div><span class="val">20.9x</span></div>
+        <div class="row"><span>伪共享</span><div class="track"><div class="bar fast" style="width:22.6%"></div></div><span class="val">15.8x</span></div>
+        <div class="row"><span>AVX2 intrinsics</span><div class="track"><div class="bar fast" style="width:21.6%"></div></div><span class="val">15.1x</span></div>
+        <div class="row"><span>循环交换</span><div class="track"><div class="bar fast" style="width:13.9%"></div></div><span class="val">9.7x</span></div>
+        <div class="row"><span>结构体压缩</span><div class="track"><div class="bar fast" style="width:10.7%"></div></div><span class="val">7.5x</span></div>
+      </div>
+      <details class="diagram">
+        <summary>🧭 TMA 分析流水线图</summary>
+        <pre class="mermaid">
+flowchart LR
+    A["perf stat --topdown<br/>L1 瓶颈分类"] --> B["toplev -l2/-l3<br/>细粒度定位"]
+    B --> C["perf record<br/>代码级采样"]
+    C --> D["VTune Microbench<br/>交叉验证"]
+    D --> E["🎯 定向优化<br/>编译/循环/访存/并行<br/>4 类 checklist"]
+    style E fill:#1565C0,stroke:#0D47A1,color:#fff
+        </pre>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>联系方式</h2>
+  <div class="card">
+    📮 Email：<a href="mailto:Chang_Chiang@outlook.com" style="color:var(--accent)">Chang_Chiang@outlook.com</a><br/>
+    🐙 GitHub：<a href="https://github.com/Chang-Chiang" style="color:var(--accent)">github.com/Chang-Chiang</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Chang-Chiang · Powered by GitHub Pages</span>
+  <a href="#" >↑ 回到顶部</a>
+</footer>
+
+</main>
+
+<script>
+/* 侧边目录滚动高亮 */
+const links = document.querySelectorAll('#toc a');
+const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => s && io.observe(s));
+</script>
+</body>
+</html>
