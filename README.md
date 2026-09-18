@@ -12,10 +12,9 @@
 **📑 目录**
 
 - [🔍 概览](#sec-overview)
-- [🛠 核心技术栈](#sec-techstack)
+- [⚙️ 核心技术栈](#sec-techstack)
 - [💼 工作经历](#sec-work)
 - [🚀 项目经历](#sec-projects)
-- [📊 GitHub Stats](#sec-stats)
 
 ---
 
@@ -29,7 +28,7 @@
 
 <a name="sec-techstack"></a>
 
-## 🛠 核心技术栈
+## ⚙️ 核心技术栈
 
 - **编程语言**：[![C++](https://img.shields.io/badge/C%2B%2B-17/14/11-00599C?style=flat-square&logo=cplusplus&logoColor=white)](https://isocpp.org/) [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/) [![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=flat-square&logo=mathworks&logoColor=white)](https://www.mathworks.com/products/matlab.html) [![x86 Assembly](https://img.shields.io/badge/x86%20Assembly-696969?style=flat-square&logo=intel&logoColor=white)](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html)
 - **开发环境**：[![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)](https://www.kernel.org/) [![GCC](https://img.shields.io/badge/GCC-A42E2B?style=flat-square)](https://gcc.gnu.org/) [![CMake](https://img.shields.io/badge/CMake-064F8C?style=flat-square&logo=cmake&logoColor=white)](https://cmake.org/) [![GDB](https://img.shields.io/badge/GDB-41B4D0?style=flat-square)](https://www.sourceware.org/gdb/) [![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=flat-square&logo=visualstudio&logoColor=white)](https://visualstudio.microsoft.com/)
@@ -141,28 +140,6 @@ flowchart LR
 ```
 
 </details>
-
-<a name="sec-stats"></a>
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=Chang-Chiang&theme=github-dark&no-frame=true&column=7"/>
-    <img src="https://github-profile-trophy.vercel.app/?username=Chang-Chiang&theme=flat&no-frame=true&column=7" alt="trophy"/>
-  </picture>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Chang-Chiang&show_icons=true&hide_border=true&theme=github_dark"/>
-    <img src="https://github-readme-stats.vercel.app/api?username=Chang-Chiang&show_icons=true&hide_border=true" width="49%" alt="CC's github stats"/>
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Chang-Chiang&layout=compact&hide_border=true&theme=github_dark"/>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Chang-Chiang&layout=compact&hide_border=true" width="49%" alt="top langs"/>
-  </picture>
-</p>
 
 <!---
 Chang-Chiang/Chang-Chiang is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
